@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import CvService from '../../services/cvsService'
 import { Button, Card, Image } from 'semantic-ui-react'
 
@@ -16,13 +16,16 @@ export default function Cvs() {
             <Card.Group>
                 {
                     cvs.map(cv => (
+
                         <Card key={cv.id}>
                             <Card.Content>
                                 <Image
                                     floated='right'
                                     size='mini'
-                                    src='/images/avatar/large/steve.jpg'
+                                    src={cv.photo}
                                 />
+                                <Card.Header>Örnek Cv Başlığı</Card.Header>
+                                <Card.Meta>{cv.createDate}</Card.Meta>
                                 <Card.Description>
                                     {cv.coverLetter}
                                 </Card.Description>
