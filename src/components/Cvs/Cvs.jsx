@@ -9,7 +9,7 @@ export default function Cvs() {
     useEffect(() => {
         let cvService = new CvService()
         cvService.getCvs().then(result => setCvs(result.data.data))
-    })
+    },[])
 
     return (
         <div>

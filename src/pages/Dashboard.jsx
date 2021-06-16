@@ -2,7 +2,7 @@ import React from 'react'
 import JobAdvertisements from '../components/JobAdvertisements/JobAdvertisements'
 import { Grid } from 'semantic-ui-react'
 import JobPositions from '../components/JobPositions/JobPositions'
-import Cvs from '../components/Cvs/Cvs'
+
 
 
 export default function Dashboard() {
@@ -17,11 +17,7 @@ export default function Dashboard() {
                         <JobAdvertisements></JobAdvertisements>
                     </Grid.Column>
                 </Grid.Row>
-                <Grid.Row>
-                    <Cvs></Cvs>
-                </Grid.Row>
             </Grid>
-
 
         </div>
     )

@@ -6,3 +6,11 @@
   margin-top: 3em;
   
 }
+
+.margin-right{
+  margin-right: .5em !important;
+}
+
+.margin-zero{
+  margin-right: 0 !important;
+}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Fav from './Fav'
 import { Button, Menu, Container, Dropdown } from 'semantic-ui-react'
+import ProfileSummary from './ProfileSummary'
 
 export default function Navi() {
 
@@ -8,29 +9,21 @@ export default function Navi() {
         <div>
             <Menu size='large'>
                 <Container>
-                    <Menu.Item name='browse'>
-                        Homepage
-                    </Menu.Item>
+                    <Menu.Item name='Dashboard'></Menu.Item>
 
                     <Menu.Menu>
                         <Fav></Fav>
                     </Menu.Menu>
 
                     <Menu.Menu position='right'>
-
-                        <Dropdown item text='Employer'>
-                            <Dropdown.Menu>
-                                <Dropdown.Item>Sign In</Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-
-                        <Menu.Item name='signup'>
-                            <Button positive>Sign Up</Button>
+                        <Menu.Item>
+                            <Button positive className='margin-right'>Sign Up</Button>
+                            <Button positive className='margin-right'>Sign In</Button>
+                            <Button primary content='Employer' icon='right arrow' labelPosition='right' />
                         </Menu.Item>
-
-                        <Menu.Item name='signin'>
-                            <Button positive>Sign In</Button>
-                        </Menu.Item>
+                        <Menu.Menu>
+                            <ProfileSummary></ProfileSummary>
+                        </Menu.Menu>
 
                     </Menu.Menu>
                 </Container>
