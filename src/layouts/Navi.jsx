@@ -1,30 +1,31 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Menu, Container } from 'semantic-ui-react'
+import SignedOut from './SignedOut'
+import SignedIn from './SignedIn'
 import Fav from './Fav'
-import { Button, Menu, Container, Dropdown } from 'semantic-ui-react'
-import ProfileSummary from './ProfileSummary'
+import { NavLink } from 'react-router-dom'
 
-export default function Navi() {
+export default function Navi(props) {
+
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+    function handleSignOut(params) {
+        setIsAuthenticated(false)
+    }
+
+    function handleSignIn(params) {
+        setIsAuthenticated(true)
+    }
 
     return (
         <div>
             <Menu size='large'>
                 <Container>
                     <Menu.Item name='Dashboard'></Menu.Item>
-
-                    <Menu.Menu>
-                        <Fav></Fav>
-                    </Menu.Menu>
-
+                    {isAuthenticated&&<Menu.Item name='Add Job Advertisement' as={NavLink} to={`/addJobAdvertisement`}></Menu.Item>}
+                    {isAuthenticated&&<Fav />}
                     <Menu.Menu position='right'>
-                        <Menu.Item>
-                            <Button positive className='margin-right'>Sign Up</Button>
-                            <Button positive className='margin-right'>Sign In</Button>
-                            <Button primary content='Employer' icon='right arrow' labelPosition='right' />
-                        </Menu.Item>
-                        <Menu.Menu>
-                            <ProfileSummary></ProfileSummary>
-                        </Menu.Menu>
-
+                        {isAuthenticated?<SignedIn signOut={handleSignOut} />:<SignedOut signIn={handleSignIn} />}
                     </Menu.Menu>
                 </Container>
             </Menu>
