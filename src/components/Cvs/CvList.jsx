@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import CvService from '../../services/cvsService'
+import { Link } from 'react-router-dom'
+import CvService from '../../services/cvService'
 import { Button, Card, Image } from 'semantic-ui-react'
+import { format } from 'date-fns'
 
 export default function Cvs() {
 
@@ -8,7 +10,7 @@ export default function Cvs() {
 
     useEffect(() => {
         let cvService = new CvService()
-        cvService.getCvs().then(result => setCvs(result.data.data))
+        cvService.getAll().then(result => setCvs(result.data.data))
     },[])
 
     return (
@@ -24,8 +26,8 @@ export default function Cvs() {
                                     size='mini'
                                     src={cv.photo}
                                 />
-                                <Card.Header>Örnek Cv Başlığı</Card.Header>
-                                <Card.Meta>{cv.createDate}</Card.Meta>
+                                <Card.Header><Link to={`/cvs/${cv.id}`}>{cv.cvTitle}</Link></Card.Header>
+                                <Card.Meta>{cv.createDate?format(new Date(cv.createDate.replace("T", " ")),"dd.MM.yyyy HH:mm"):""}</Card.Meta>
                                 <Card.Description>
                                     {cv.coverLetter}
                                 </Card.Description>

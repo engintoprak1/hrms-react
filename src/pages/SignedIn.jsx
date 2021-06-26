@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileSummary from './ProfileSummary'
+import ProfileSummary from '../layouts/ProfileSummary'
 import { Menu } from 'semantic-ui-react'
 
 export default function SignedIn({signOut}) {
@@ -10,11 +10,7 @@ export default function SignedIn({signOut}) {
                     <ProfileSummary signOut={signOut}></ProfileSummary>
                 </Menu.Item>
             </Menu.Menu>
-
-            
-
-            
-            
+   
         </div>
     )
 }

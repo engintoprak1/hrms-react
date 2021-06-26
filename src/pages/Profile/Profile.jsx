@@ -1,6 +1,5 @@
 import React from 'react'
-import { Grid } from "semantic-ui-react";
-import Cvs from '../components/Cvs/Cvs'
+import Cvs from '../../components/Cvs/CvList'
 
 export default function Profile() {
     return (

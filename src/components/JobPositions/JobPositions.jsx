@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import JobPositionService from '../../services/jobPositionsService'
+import JobPositionService from '../../services/jobPositionService'
 import { Menu } from 'semantic-ui-react'
 
 export default function JobPositions() {
@@ -14,7 +14,7 @@ export default function JobPositions() {
     return (
         <div>
 
-            <Menu pointing secondary vertical>
+            <Menu pointing secondary vertical size="large">
                 {
                     jobPositions.map(jobPosition => (
                         <Menu.Item key={jobPosition.id}>
